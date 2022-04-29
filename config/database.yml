@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 30
+  timeout: 8000
+  timeout: 5000
+
+development:
+  <<: *default
+  database: oasis
+
+staging:
+  <<: *default
+  database: oasis
+
+test:
+  <<: *default
+  database: oasis_test
+
+production:
+  <<: *default
+  database: oasis
