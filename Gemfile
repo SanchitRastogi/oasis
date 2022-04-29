@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.6'
+ruby '2.7.2'
 
 
-gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
+gem 'rails', '~> 7.0.2'
 
 gem 'pg', '>= 0.18', '< 2.0'
 
@@ -75,15 +75,11 @@ gem 'carrierwave-base64'
 
 gem 'aws-sdk-s3', '~> 1'
 
-gem 'aws-sdk', '~> 3'
-
 gem 'unicorn'
 
 gem 'sidekiq'
 
 gem 'mina-sidekiq'
-
-gem 'mina-puma', require: false,  github: 'untitledkingdom/mina-puma'
 
 gem 'mina-unicorn', '~> 1.0.0', require: false
 

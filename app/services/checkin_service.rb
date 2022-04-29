@@ -17,11 +17,7 @@ class CheckinService
 
   def destroy(id)
     checkin = Checkin.find(id)
-
-    # Checkin.transaction do
-      # checkin.checkedin_rooms.destroy_all
     checkin.destroy!
-    # end
   end
 
   def upload(id, files)
@@ -39,9 +35,6 @@ class CheckinService
   private
 
   def validations(checkin_params)
-    # checkedin_rooms = Checkin.todays_checkedin_rooms.pluck("rooms.room_name")
-    # checkedin_rooms_count = checkedin_rooms.count
-
     occupied_rooms = Checkin.occupied_rooms
     if occupied_rooms.find_by_room_id(checkin_params[:room_id]).exists?
       raise ValidationError.new "Room khali nahi hai"
@@ -56,17 +49,6 @@ class CheckinService
 
       raise ValidationError.new, "Rooms pe pehle se booking hai"
     end
-
-    # if checkedin_rooms_count + booked_rooms_count + room_params.count > 11
-    #   raise ValidationError.new "Rooms pe pehle se booking hai"
-    # end
-
-    # rooms = room_params.map {|room| room[:room_name]}
-    # raise ValdationError.new "Rooms pehle se checkin hai" if rooms.uniq.count > room_params.count
-
-    # if checkedin_rooms & rooms
-    #   raise ValdationError.new "Rooms pehle se checkin hai"
-    # end
   end
 
 
