@@ -9,7 +9,6 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.decimal :amount
       t.uuid :customer_id
       t.uuid :user_id
-      t.datetime :date
       t.datetime :checkin_time
       t.datetime :checkout_time
       t.datetime :cancelled_at
